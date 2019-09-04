@@ -1,0 +1,29 @@
+<!--<form (submit)="loginUser($event)">-->
+<!--  <div class="input">-->
+<!--    <label>Username</label>-->
+<!--    <input type="text">-->
+<!--  </div>-->
+<!--  <div class="input">-->
+<!--    <label>Password</label>-->
+<!--    <input type="password">-->
+<!--  </div>-->
+<!--  <div class="input">-->
+<!--    <input type="submit" value="Login">-->
+<!--  </div>-->
+<!--</form>-->
+
+<form #form='ngForm' class="mb-4" autocomplete="off" style="text-align: center">
+  <div class="form-group">
+    <label>Username</label>
+    <input class="form-control-login" #Username= "ngModel" name="Username" [(ngModel)]="formModel.UserName">
+  </div>
+  <div class="form-group">
+    <label>Password</label>
+    <input class="form-control-login" #Password= "ngModel" name="Password" [(ngModel)]="formModel.Password">
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-8 offset-md-2">
+      <button type="submit" class="btn btn-lg btn-block">Login</button>
+    </div>
+  </div>
+</form>

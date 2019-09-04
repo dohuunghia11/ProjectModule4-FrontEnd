@@ -1,0 +1,98 @@
+<h2>Apartment</h2>
+
+<form [formGroup]="apartmentForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label>
+      Name
+      <br>
+      <input type="text" formControlName="name">
+    </label>
+  </div>
+  <div *ngIf="apartmentForm.get('name').invalid && apartmentForm.get('name').touched" style="color: red">
+    Name is required and min length is 5
+  </div>
+  <div>
+    <label>
+      HouseKind
+      <br>
+      <input type="text" formControlName="houseKind">
+    </label>
+  </div>
+  <div *ngIf="apartmentForm.get('houseKind').invalid && apartmentForm.get('houseKind').touched" style="color: red">
+    HouseKind is required and min length is 5
+  </div>
+  <div>
+    <label>
+      RoomKind
+      <br>
+      <input type="text" formControlName="roomKind">
+    </label>
+  </div>
+  <div *ngIf="apartmentForm.get('roomKind').invalid && apartmentForm.get('roomKind').touched" style="color: red">
+    RoomKind is required and min length is 5
+  </div>
+  <div>
+    <label>
+      Address
+      <br>
+      <input type="text" formControlName="address">
+    </label>
+  </div>
+  <div *ngIf="apartmentForm.get('address').invalid && apartmentForm.get('address').touched" style="color: red">
+    Address is required and min length is 5
+  </div>
+  <div>
+    <label>
+      RoomNumber
+      <br>
+      <input type="text" formControlName="roomNumber">
+    </label>
+  </div>
+  <div *ngIf="apartmentForm.get('roomNumber').invalid && apartmentForm.get('roomNumber').touched" style="color: red">
+    RoomNumber is required and min length is 5
+  </div>
+  <div>
+    <label>
+      BathNumber
+      <br>
+      <input type="text" formControlName="bathNumber">
+    </label>
+  </div>
+  <div *ngIf="apartmentForm.get('bathNumber').invalid && apartmentForm.get('bathNumber').touched" style="color: red">
+    BathNumber is required and min length is 5
+  </div>
+  <div>
+    <label>
+      PrizePerNight
+      <br>
+      <input type="text" formControlName="prizePerNight">
+    </label>
+  </div>
+  <div *ngIf="apartmentForm.get('prizePerNight').invalid && apartmentForm.get('prizePerNight').touched" style="color: red">
+    PrizePerNight is required and min length is 5
+  </div>
+  <div>
+    <label>
+      Description
+      <br>
+      <textarea formControlName="description" cols="30" rows="10"></textarea>
+    </label>
+  </div>
+  <div *ngIf="apartmentForm.get('description').invalid && apartmentForm.get('description').touched" style="color: red">
+    description is required and min length is 5
+  </div>
+  <button type="submit">Submit</button>
+</form>
+
+<ul>
+  <li *ngFor="let apartment of apartmentList; index as i">
+    <h3>
+      <a [routerLink]="['/apartment', apartment.id]">
+        Apartment Id: {{apartment.id}} - {{apartment.name}}
+      </a>
+    </h3>
+    <a [routerLink]="['/apartment', apartment.id, 'edit']">Edit</a>
+
+    <button (click)="deleteApartment(i)">Delete</button>
+  </li>
+</ul>

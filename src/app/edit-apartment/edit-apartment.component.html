@@ -1,0 +1,33 @@
+<form [formGroup]="apartmentForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label>
+      Name
+      <br>
+      <input type="text" formControlName="name">
+    </label>
+  </div>
+  <div *ngIf="apartmentForm.get('name').invalid && apartmentForm.get('name').touched" style="color: red">
+    Name is required and min length is 10
+  </div>
+  <div>
+    <label>
+      Author
+      <br>
+      <input type="text" formControlName="author">
+    </label>
+  </div>
+  <div *ngIf="bookForm.get('author').invalid && bookForm.get('author').touched" style="color: red">
+    Author is required and min length is 10
+  </div>
+  <div>
+    <label>
+      Description
+      <br>
+      <textarea formControlName="description" cols="30" rows="10"></textarea>
+    </label>
+  </div>
+  <div *ngIf="bookForm.get('description').invalid && bookForm.get('description').touched" style="color: red">
+    Author is required and min length is 10
+  </div>
+  <button type="submit" (click)="onSubmit()">Submit</button>
+</form>
